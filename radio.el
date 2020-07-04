@@ -1,9 +1,11 @@
-;;; radio.el --- a radio player                      -*- lexical-binding: t; -*-
+;;; radio.el --- A radio player                      -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Olav Fosse
 
 ;; Author: Olav Fosse <fosseolav@gmail.com>
 ;; Version: 0.1
+;; URL: https://github.com/olav35/radio
+;; Package-Requires: ((emacs "24.1"))
 
 ;; This program is free software; you can redistribute it and/or modify
 ;; it under the terms of the GNU General Public License as published by
@@ -31,10 +33,8 @@
                          ("cyberia - lainon". "http://lainon.life:8000/cyberia.ogg")
                          ("cafe - lainon" . "http://lainon.life:8000/cafe.ogg")
                          ("swing - lainon" . "http://lainon.life:8000/swing.ogg")
-                         ("everything - lainon" . "http://lainon.life:8000/everything.ogg")
-                         )
-  "Radio's radio channels."
-  )
+                         ("everything - lainon" . "http://lainon.life:8000/everything.ogg"))
+  "Radio's radio channels.")
 
 (defvar radio-process nil "The process running the radio player.")
 
