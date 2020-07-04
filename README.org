@@ -1,2 +1,4 @@
+#+HTML: <a href=https://alphapapa.github.io/dont-tread-on-emacs/><img src="dont-tread-on-emacs-150.png" align="right"></a>
+
 * Radio
 This is an Internet radio player for Emacs.
