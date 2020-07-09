@@ -26,6 +26,7 @@
 
 ;;; Code:
 
+;;;###autoload
 (defvar radio-channels '(("def con - soma fm" . "http://somafm.com/defcon256.pls")
                          ("metal - soma fm" . "http://somafm.com/metal130.pls")
                          ("groove salad - soma fm" . "http://somafm.com/groovesalad256.pls")
@@ -58,6 +59,7 @@
                        nil nil)))
   (or (cdr (assoc radio-channel radio-channels)) radio-channel)))
 
+;;;###autoload
 (defun radio-play ()
   "Play a radio channel, do what I mean."
   (interactive)
