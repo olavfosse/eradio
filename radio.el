@@ -45,7 +45,7 @@
 
 (defun radio-stop ()
   "Stop the radio player."
-  (interactive) (when (not (eq nil radio-process)) (delete-process radio-process)))
+  (interactive) (unless (eq nil radio-process) (delete-process radio-process)))
 
 (defun radio-play-low-level (URL)
   "Play radio channel URL in a new process."
