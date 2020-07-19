@@ -27,14 +27,14 @@
 ;;; Code:
 
 ;;;###autoload
-(defvar radio-channels '(("def con - soma fm" . "http://somafm.com/defcon256.pls")
-                         ("metal - soma fm" . "http://somafm.com/metal130.pls")
-                         ("groove salad - soma fm" . "http://somafm.com/groovesalad256.pls")
-                         ("secret agent - soma fm" . "http://www.somafm.com/secretagent.pls")
-                         ("cyberia - lainon". "http://lainon.life:8000/cyberia.ogg")
-                         ("cafe - lainon" . "http://lainon.life:8000/cafe.ogg")
-                         ("swing - lainon" . "http://lainon.life:8000/swing.ogg")
-                         ("everything - lainon" . "http://lainon.life:8000/everything.ogg"))
+(defvar radio-channels '(("def con - soma fm" . "https://somafm.com/defcon256.pls")
+                         ("metal - soma fm" . "https://somafm.com/metal130.pls")
+                         ("groove salad - soma fm" . "https://somafm.com/groovesalad256.pls")
+                         ("secret agent - soma fm" . "https://www.somafm.com/secretagent.pls")
+                         ("cyberia - lainon". "https://lainon.life:8000/cyberia.ogg")
+                         ("cafe - lainon" . "https://lainon.life:8000/cafe.ogg")
+                         ("swing - lainon" . "https://lainon.life:8000/swing.ogg")
+                         ("everything - lainon" . "https://lainon.life:8000/everything.ogg"))
   "Radio's radio channels.")
 
 (defvar radio-process nil "The process running the radio player.")
