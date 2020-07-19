@@ -41,7 +41,7 @@
 
 (defun radio-alist-keys (alist)
   "Get the keys from an ALIST."
-  (mapcar 'car alist))
+  (mapcar #'car alist))
 
 (defun radio-stop ()
   "Stop the radio player."
