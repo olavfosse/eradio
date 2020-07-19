@@ -1,2 +1,2 @@
-* Radio
+* eradio
 The Internet radio player for Emacs.
