@@ -1,4 +1,4 @@
-;;; eradio.el --- A radio player                      -*- lexical-binding: t; -*-
+;;; eradio.el --- A radio player frontend for vlc                      -*- lexical-binding: t; -*-
 
 ;; Copyright (C) 2020  Olav Fosse
 
@@ -22,7 +22,7 @@
 
 ;;; Commentary:
 
-;; A radio player
+;; A radio player frontend for vlc
 
 ;;; Code:
 
