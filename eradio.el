@@ -49,7 +49,7 @@
 
 (defun eradio-play-low-level (url)
   "Play radio channel URL in a new process."
-  (setq eradio-process (start-process "eradio-process" nil "vlc" "--no-video" "-I" "rc" (shell-quote-argument url))))
+  (setq eradio-process (start-process "eradio-process" nil "vlc" "--no-video" "-I" "rc" url)))
 
 (defun eradio-get-url ()
   "Get a radio channel URL from the user."
