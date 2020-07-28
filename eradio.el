@@ -47,9 +47,9 @@
   "Stop the radio player."
   (interactive) (when eradio-process (delete-process eradio-process)))
 
-(defun eradio-play-low-level (URL)
+(defun eradio-play-low-level (url)
   "Play radio channel URL in a new process."
-  (setq eradio-process (start-process "eradio-process" nil "vlc" "--no-video" "-I" "rc" (shell-quote-argument URL))))
+  (setq eradio-process (start-process "eradio-process" nil "vlc" "--no-video" "-I" "rc" (shell-quote-argument url))))
 
 (defun eradio-get-url ()
   "Get a radio channel URL from the user."
