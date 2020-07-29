@@ -22,7 +22,7 @@ The package is available in the Melpa repository.
 #+end_src
 
 ** Keybindings
-eradio does not bind any keybindings by default. Therefore you should bind them yourself. The following snippets are just suggestions. You can of course use any keybindings you would like.
+eradio does not bind any keys by default. Therefore you should bind them yourself. The following snippets are just suggestions. You can of course use any keybindings you would like.
 
 *** Doom
 #+begin_src lisp
