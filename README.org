@@ -2,3 +2,52 @@
 
 ** Synopsis
 eradio is a simple internet radio player for Emacs.
+
+The public interface consists of two functions, =eradio-play= and =eradio-stop= and a variable =eradio-channels=. =eradio-play= let's you choose a radio channel to play and =eradio-stop= stops the radio player. The =eradio-channels= variable is an alist of radio channel names and their urls.
+
+** Installation
+The package is available in the Melpa repository.
+
+*** Doom
+#+begin_src lisp
+;; ~/.doom.d/packages.el
+(package! eradio)
+#+end_src
+
+*** use-package
+#+begin_src lisp
+;; ~/.emacs.d/init.el
+(use-package eradio
+  :ensure t)
+#+end_src
+
+** Keybindings
+eradio does not bind any keybindings by default. Therefore you should bind them yourself. The following snippets are just suggestions. You can of course use any keybindings you would like.
+
+*** Doom
+#+begin_src lisp
+;; ~/.doom.d/config.el
+(map! :leader (:prefix ("r" . "eradio") :desc "Play a radio channel" "p" 'eradio-play))
+(map! :leader (:prefix ("r" . "eradio") :desc "Stop the radio player" "s" 'eradio-stop))
+#+end_src
+
+*** Vanilla
+#+begin_src lisp
+;; ~/.emacs.d/init.el
+(global-set-key (kbd "C-c r p") 'eradio-play)
+(global-set-key (kbd "C-c r s") 'eradio-stop)
+#+end_src
+
+** Radio channels
+eradio comes with the following radio channels by default.
+#+begin_src lisp
+;; ~/.doom.d/config.el or ~/.emacs.d/init.el
+(setq eradio-channels '(("def con - soma fm" . "https://somafm.com/defcon256.pls")
+                        ("metal - soma fm" . "https://somafm.com/metal130.pls")
+                        ("groove salad - soma fm" . "https://somafm.com/groovesalad256.pls")
+                        ("secret agent - soma fm" . "https://www.somafm.com/secretagent.pls")
+                        ("cyberia - lainon". "https://lainon.life:8000/cyberia.ogg")
+                        ("cafe - lainon" . "https://lainon.life:8000/cafe.ogg")
+                        ("swing - lainon" . "https://lainon.life:8000/swing.ogg")
+                        ("everything - lainon" . "https://lainon.life:8000/everything.ogg"))
+#+end_src
