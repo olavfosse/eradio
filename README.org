@@ -1,2 +1,4 @@
-* eradio
-The Internet radio player for Emacs.
+[[https://melpa.org/#/eradio][file:https://melpa.org/packages/eradio-badge.svg]]
+
+** Synopsis
+eradio is a simple internet radio player for Emacs.
