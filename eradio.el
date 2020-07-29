@@ -27,14 +27,7 @@
 ;;; Code:
 
 ;;;###autoload
-(defcustom eradio-channels '(("def con - soma fm" . "https://somafm.com/defcon256.pls")
-                             ("metal - soma fm" . "https://somafm.com/metal130.pls")
-                             ("groove salad - soma fm" . "https://somafm.com/groovesalad256.pls")
-                             ("secret agent - soma fm" . "https://www.somafm.com/secretagent.pls")
-                             ("cyberia - lainon". "https://lainon.life:8000/cyberia.ogg")
-                             ("cafe - lainon" . "https://lainon.life:8000/cafe.ogg")
-                             ("swing - lainon" . "https://lainon.life:8000/swing.ogg")
-                             ("everything - lainon" . "https://lainon.life:8000/everything.ogg"))
+(defcustom eradio-channels '()
   "Eradio's radio channels."
   :type 'sexp
   :group 'eradio)
