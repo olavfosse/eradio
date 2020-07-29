@@ -48,4 +48,4 @@ eradio comes without any radio channels by default, but here are some of my favo
                         ("cafe - lainon"     . "https://lainon.life/radio/cafe.ogg.m3u")))  ;; boring ambient, but with lain
 #+end_src
 
-If you are looking for something else I encourage you to check out [[https://somafm.com/][soma fm]]. They have a lot of good channels of all genres and aesthetics.
+If you are looking for more channels I encourage you to check out the SomaFM [[https://somafm.com/][catalog]]. They have a lot of good channels of all genres and aesthetics. Needless to say I am not associated with SomaFM.
