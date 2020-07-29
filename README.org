@@ -39,15 +39,13 @@ eradio does not bind any keybindings by default. Therefore you should bind them 
 #+end_src
 
 ** Radio channels
-eradio comes with the following radio channels by default.
+eradio comes without any radio channels by default, but here are some of my favorites.
 #+begin_src lisp
 ;; ~/.doom.d/config.el or ~/.emacs.d/init.el
-(setq eradio-channels '(("def con - soma fm" . "https://somafm.com/defcon256.pls")
-                        ("metal - soma fm" . "https://somafm.com/metal130.pls")
-                        ("groove salad - soma fm" . "https://somafm.com/groovesalad256.pls")
-                        ("secret agent - soma fm" . "https://www.somafm.com/secretagent.pls")
-                        ("cyberia - lainon". "https://lainon.life:8000/cyberia.ogg")
-                        ("cafe - lainon" . "https://lainon.life:8000/cafe.ogg")
-                        ("swing - lainon" . "https://lainon.life:8000/swing.ogg")
-                        ("everything - lainon" . "https://lainon.life:8000/everything.ogg"))
+(setq eradio-channels '(("def con - soma fm" . "https://somafm.com/defcon256.pls")          ;; electronica with defcon-speaker bumpers
+                        ("metal - soma fm"   . "https://somafm.com/metal130.pls")           ;; \m/
+                        ("cyberia - lainon"  . "https://lainon.life/radio/cyberia.ogg.m3u") ;; cyberpunk-esque electronica
+                        ("cafe - lainon"     . "https://lainon.life/radio/cafe.ogg.m3u")))  ;; boring ambient, but with lain
 #+end_src
+
+If you are looking for something else I encourage you to check out [[https://somafm.com/][soma fm]]. They have a lot of good channels of all genres and aesthetics.
