@@ -32,6 +32,17 @@
   :type '(repeat (cons (string :tag "Name") (string :tag "URL")))
   :group 'eradio)
 
+(defcustom eradio-player '("vlc" "--no-video" "-I" "rc")
+  "Eradio's player.
+This is actually a list of the program and its arguments.  The
+url will be appended to the list to generate the full command."
+  :type '(choice
+	  (const :tag "vlc"
+		 ("vlc" "--no-video" "-I" "rc"))
+	  (const :tag "mpv"
+		 ("mpv" "--no-video")))
+  :group 'eradio)
+
 (defvar eradio-process nil "The process running the radio player.")
 
 (defun eradio-alist-keys (alist)
@@ -44,7 +55,9 @@
 
 (defun eradio-play-low-level (url)
   "Play radio channel URL in a new process."
-  (setq eradio-process (start-process "eradio-process" nil "vlc" "--no-video" "-I" "rc" url)))
+  (setq eradio-process
+	(apply #'start-process
+	       `("eradio-process" nil ,@eradio-player ,url))))
 
 (defun eradio-get-url ()
   "Get a radio channel URL from the user."
