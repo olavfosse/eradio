@@ -59,3 +59,6 @@ eradio comes without any radio channels by default, but here are some of my favo
 #+end_src
 
 If you are looking for more channels I encourage you to check out the SomaFM [[https://somafm.com/][catalog]]. They have a lot of good channels of all genres and aesthetics. Needless to say I am not associated with SomaFM.
+
+** Troubleshooting
+Some VLC ports are incapable of playing Internet radio. This seems to be the case with [[https://cvsweb.openbsd.org/cgi-bin/cvsweb/ports/x11/vlc/][OpenBSD's port]]. To verify that your vlc installation works run =vlc --no-video -I rc <radio-channel>= for example =vlc --no-video -I rc https://somafm.com/defcon256.pls=. Be aware that it might take some seconds before the audio starts. That is expected.
