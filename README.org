@@ -5,6 +5,16 @@ eradio is a simple Internet radio player for Emacs.
 
 The public interface consists of two functions, =eradio-play= and =eradio-stop=, as well as a variable =eradio-channels=. =eradio-play= prompts you for a radio channel to play and =eradio-stop= stops the radio player. The =eradio-channels= variable is an alist of radio channel names and their URLs.
 
+** VLC
+eradio requires that vlc is in =$PATH= and capable of playing Internet radio. On Linux and most other Unix-like system this requirement can be satisfied by simply installing the vlc package from your distribution's repository.
+
+On MacOS this can be done by installing VLC from [[https://www.videolan.org/]], writing the following to =/usr/local/bin/vlc= and making it executable with =chmod +x /usr/local/bin/vlc=.
+#+BEGIN_SRC sh
+#!/bin/sh                                                                       
+exec '/Applications/VLC.app/Contents/MacOS/VLC' "$@"
+#+END_SRC
+*WARNING* Symlinking =/usr/local/bin/vlc= to =/Applications/VLC.app/Contents/MacOS/VLC= does not work.
+
 ** Installation
 The package is available in the Melpa repository.
 
