@@ -29,7 +29,7 @@
 ;;;###autoload
 (defcustom eradio-channels '()
   "Eradio's radio channels."
-  :type 'sexp
+  :type '(repeat (cons (string :tag "Name") (string :tag "URL")))
   :group 'eradio)
 
 (defvar eradio-process nil "The process running the radio player.")
