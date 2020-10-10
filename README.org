@@ -5,7 +5,7 @@ eradio is a simple Internet radio player for Emacs.
 
 The public interface consists of two functions, =eradio-play= and =eradio-stop=, as well as two variables =eradio-channels= and =eradio-player=. =eradio-play= prompts you for a radio channel to play and =eradio-stop= stops the radio player. The =eradio-channels= variable is an alist of radio channel names and their URLs and =eradio-player= is a list of the media player and its arguments.
 
-** [[https://github.com/olav35/eradio/raw/demonstration/demonstration.mp4][Demonstration]]
+** [[https://github.com/olav35/eradio/blob/master/demonstration.mp4?raw=true][Demonstration]]
 
 ** Installation
 The package is available in the Melpa repository.
