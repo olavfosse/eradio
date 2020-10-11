@@ -34,11 +34,12 @@
 
 (defcustom eradio-player '("vlc" "--no-video" "-I" "rc")
   "Eradio's player.
-This is actually a list of the program and its arguments.  The
-url will be appended to the list to generate the full command."
+This is a list of the program and its arguments.  The url will be appended to the list to generate the full command."
   :type '(choice
 	  (const :tag "vlc"
 		 ("vlc" "--no-video" "-I" "rc"))
+	  (const :tag "vlc-mac"
+		 ("/Applications/VLC.app/Contents/MacOS/VLC" "--no-video" "-I" "rc"))
 	  (const :tag "mpv"
 		 ("mpv" "--no-video")))
   :group 'eradio)
