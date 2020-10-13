@@ -24,7 +24,7 @@ The package is available in the Melpa repository.
 #+end_src
 
 ** Media player
-eradio requires an external media player such as VLC or mpv. The command to be used is determined by the =eradio-player= variable. The head of =eradio-player= is the program and the tail is the arguments. The default command uses VLC from $PATH, but it can be customized to use mpv, VLC.app or alternatively set to use something else entirely.
+eradio requires an external media player such as VLC or mpv. The command to be used is determined by the =eradio-player= variable. The head of =eradio-player= is the program and the tail is the arguments. The default command uses VLC from the =exec-path= variable(which may differ from =$PATH=), but it can be customized to use mpv, VLC.app or alternatively set to use something else entirely.
 
 To use VLC.app, customize =eradio-player= to =vlc-mac= or set it to =("/Applications/VLC.app/Contents/MacOS/VLC" "--no-video" "-I" "rc")=. To use mpv, customize =eradio-player= to =mpv= or set it to =("mpv" "--no-video" "--no-terminal")=
 
