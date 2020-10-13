@@ -41,7 +41,7 @@ This is a list of the program and its arguments.  The url will be appended to th
 	  (const :tag "vlc-mac"
 		 ("/Applications/VLC.app/Contents/MacOS/VLC" "--no-video" "-I" "rc"))
 	  (const :tag "mpv"
-		 ("mpv" "--no-video")))
+		 ("mpv" "--no-video" "--no-terminal")))
   :group 'eradio)
 
 (defvar eradio-process nil "The process running the radio player.")
