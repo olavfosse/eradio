@@ -26,7 +26,9 @@ The package is available in the Melpa repository.
 ** Media player
 eradio requires an external media player such as VLC or mpv. The command to be used is determined by the =eradio-player= variable. The head of =eradio-player= is the program and the tail is the arguments. The default command uses VLC from the =exec-path= variable(which may differ from =$PATH=), but it can be customized to use mpv, VLC.app or alternatively set to use something else entirely.
 
-To use VLC.app, customize =eradio-player= to =vlc-mac= or set it to =("/Applications/VLC.app/Contents/MacOS/VLC" "--no-video" "-I" "rc")=. To use mpv, customize =eradio-player= to =mpv= or set it to =("mpv" "--no-video" "--no-terminal")=
+To use VLC.app, customize =eradio-player= to =vlc-mac= or set it to =("/Applications/VLC.app/Contents/MacOS/VLC" "--no-video" "-I" "rc")=. To use mpv, customize =eradio-player= to =mpv= or set it to ~("mpv" "--no-video" "--no-terminal" "--input-ipc-server=/tmp/eradio-socket")~
+
+Currently =eradio-{get,show}-song-title= functions only works with =mpv=.
 
 ** Keybindings
 eradio does not bind any keys by default. Therefore you should bind them yourself. The following snippets are just suggestions. You can of course use any keybindings you would like.
