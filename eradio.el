@@ -52,7 +52,18 @@ This is a list of the program and its arguments.  The url will be appended to th
 
 (defun eradio-stop ()
   "Stop the radio player."
-  (interactive) (when eradio-process (delete-process eradio-process)))
+  (interactive)
+  (when eradio-process
+    (progn
+      (delete-process eradio-process)
+      (setq eradio-process nil))))
+
+(defun eradio-toggle ()
+  "Toggle the radio player."
+  (interactive)
+  (if eradio-process
+      (eradio-stop)
+    (eradio-play)))
 
 (defun eradio-play-low-level (url)
   "Play radio channel URL in a new process."
