@@ -32,16 +32,22 @@
   :type '(repeat (cons (string :tag "Name") (string :tag "URL")))
   :group 'eradio)
 
+(defcustom eradio-mpv-socket "/tmp/eradio-socket"
+  "Eradio's mpv socket path.
+This is required for `eradio-{get,show}-song-title` functions to work properly. You also need to set --input-ipc-server parameter to mpv with value of this variable."
+  :type 'string
+  :group 'eradio)
+
 (defcustom eradio-player '("vlc" "--no-video" "-I" "rc")
   "Eradio's player.
 This is a list of the program and its arguments.  The url will be appended to the list to generate the full command."
-  :type '(choice
+  :type `(choice
 	  (const :tag "vlc"
 		 ("vlc" "--no-video" "-I" "rc"))
 	  (const :tag "vlc-mac"
 		 ("/Applications/VLC.app/Contents/MacOS/VLC" "--no-video" "-I" "rc"))
 	  (const :tag "mpv"
-		 ("mpv" "--no-video" "--no-terminal")))
+		 ("mpv" "--no-video" "--no-terminal" ,(concat "--input-ipc-server=" eradio-mpv-socket))))
   :group 'eradio)
 
 (defvar eradio-process nil "The process running the radio player.")
@@ -67,6 +73,19 @@ This is a list of the program and its arguments.  The url will be appended to th
                        (eradio-alist-keys eradio-channels)
                        nil nil)))
   (or (cdr (assoc eradio-channel eradio-channels)) eradio-channel)))
+
+(defun eradio-get-song-title ()
+  "Return currently playing songs title."
+  (let* ((socket-command "{ \"command\": [\"get_property\", \"filtered-metadata\"] }")
+         (command (format "echo '%s' | socat - %s" socket-command eradio-mpv-socket))
+         (command-output (shell-command-to-string command))
+         (json (json-read-from-string command-output)))
+    (cdr (assoc 'icy-title (assoc 'data json)))))
+
+(defun eradio-show-song-title ()
+  "Show currently playing songs title."
+  (interactive)
+  (message (eradio-get-song-title)))
 
 ;;;###autoload
 (defun eradio-play ()
