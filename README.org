@@ -28,7 +28,7 @@ eradio requires an external media player such as VLC or mpv. The command to be u
 
 To use VLC.app, customize =eradio-player= to =vlc-mac= or set it to =("/Applications/VLC.app/Contents/MacOS/VLC" "--no-video" "-I" "rc")=. To use mpv, customize =eradio-player= to =mpv= or set it to ~("mpv" "--no-video" "--no-terminal" "--input-ipc-server=/tmp/eradio-socket")~
 
-Currently =eradio-{get,show}-song-title= functions only works with =mpv=.
+Currently =eradio-{get,show}-song-title= functions only works with =mpv=. Also [[https://linux.die.net/man/1/socat][socat]] is required for these functions to work. Install it through your package manager.
 
 ** Keybindings
 eradio does not bind any keys by default. Therefore you should bind them yourself. The following snippets are just suggestions. You can of course use any keybindings you would like.
