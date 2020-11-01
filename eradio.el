@@ -54,9 +54,8 @@ This is a list of the program and its arguments.  The url will be appended to th
   "Stop the radio player."
   (interactive)
   (when eradio-process
-    (progn
-      (delete-process eradio-process)
-      (setq eradio-process nil))))
+    (delete-process eradio-process)
+    (setq eradio-process nil)))
 
 (defun eradio-toggle ()
   "Toggle the radio player."
