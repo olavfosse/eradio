@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2020  Olav Fosse
 
-;; Author: Olav Fosse <fosseolav@gmail.com>
+;; Author: Olav Fosse <mail@olavfosse.no>
 ;; Version: 0.1
 ;; URL: https://github.com/olav35/eradio
 ;; Package-Requires: ((emacs "24.1"))
