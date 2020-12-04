@@ -57,7 +57,6 @@ This is a list of the program and its arguments.  The url will be appended to th
   (interactive)
   (when eradio-process
     (delete-process eradio-process)
-    (setq eradio-current-channel nil)
     (setq eradio-process nil)))
 
 (defun eradio-toggle ()
