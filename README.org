@@ -9,7 +9,7 @@ The public interface consists of three functions and three variables.
 
 - =eradio-play= prompts you for a channel to play.
 - =eradio-stop= stops the player.
-- =eradio-toggle= stops the player if a song is playing. therwise it plays the previous played channel. If no songs have been played so far it prompts for a channel in the same way as =eradio-play=.
+- =eradio-toggle= stops the player if a song is playing. Otherwise it plays the previous played channel. If no songs have been played so far it prompts for a channel in the same way as =eradio-play=.
 
 *** Variables
 
