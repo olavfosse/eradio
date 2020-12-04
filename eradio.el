@@ -2,7 +2,7 @@
 
 ;; Copyright (C) 2020  Olav Fosse
 
-;; Author: Olav Fosse <fosseolav@gmail.com>
+;; Author: Olav Fosse <mail@olavfosse.no>
 ;; Version: 0.1
 ;; URL: https://github.com/olav35/eradio
 ;; Package-Requires: ((emacs "24.1"))
@@ -44,7 +44,7 @@ This is a list of the program and its arguments.  The url will be appended to th
 		 ("mpv" "--no-video" "--no-terminal")))
   :group 'eradio)
 
-(defvar eradio-process nil "The process running the radio player.")
+(defvar eradio--process nil "The process running the radio player.")
 
 (defvar eradio-current-channel nil "The currently playing (or paused) channel.")
 
@@ -55,23 +55,23 @@ This is a list of the program and its arguments.  The url will be appended to th
 (defun eradio-stop ()
   "Stop the radio player."
   (interactive)
-  (when eradio-process
-    (delete-process eradio-process)
-    (setq eradio-process nil)))
+  (when eradio--process
+    (delete-process eradio--process)
+    (setq eradio--process nil)))
 
 (defun eradio-toggle ()
   "Toggle the radio player."
   (interactive)
-  (if eradio-process
+  (if eradio--process
       (eradio-stop)
     ;; If eradio-current-channel is nil, eradio-play will prompt the url
     (eradio-play eradio-current-channel)))
 
 (defun eradio-play-low-level (url)
   "Play radio channel URL in a new process."
-  (setq eradio-process
+  (setq eradio--process
 	(apply #'start-process
-	       `("eradio-process" nil ,@eradio-player ,url))))
+	       `("eradio--process" nil ,@eradio-player ,url))))
 
 (defun eradio-get-url ()
   "Get a radio channel URL from the user."
