@@ -46,13 +46,26 @@ This is a list of the program and its arguments.  The url will be appended to th
 
 (defvar eradio--process nil "The process running the radio player.")
 
+(defvar eradio-current-channel nil "The currently playing (or paused) channel.")
+
 (defun eradio-alist-keys (alist)
   "Get the keys from an ALIST."
   (mapcar #'car alist))
 
 (defun eradio-stop ()
   "Stop the radio player."
-  (interactive) (when eradio--process (delete-process eradio--process)))
+  (interactive)
+  (when eradio--process
+    (delete-process eradio--process)
+    (setq eradio--process nil)))
+
+(defun eradio-toggle ()
+  "Toggle the radio player."
+  (interactive)
+  (if eradio--process
+      (eradio-stop)
+    ;; If eradio-current-channel is nil, eradio-play will prompt the url
+    (eradio-play eradio-current-channel)))
 
 (defun eradio-play-low-level (url)
   "Play radio channel URL in a new process."
@@ -69,11 +82,12 @@ This is a list of the program and its arguments.  The url will be appended to th
   (or (cdr (assoc eradio-channel eradio-channels)) eradio-channel)))
 
 ;;;###autoload
-(defun eradio-play ()
+(defun eradio-play (&optional url)
   "Play a radio channel, do what I mean."
   (interactive)
   (eradio-stop)
-  (let ((url (eradio-get-url)))
+  (let ((url (or url (eradio-get-url))))
+    (setq eradio-current-channel url)
     (eradio-play-low-level url)))
 
 (provide 'eradio)
