@@ -64,8 +64,8 @@ This is a list of the program and its arguments.  The url will be appended to th
   (interactive)
   (if eradio-process
       (eradio-stop)
-    (when eradio-current-channel
-      (eradio-play eradio-current-channel))))
+    ;; If eradio-current-channel is nil, eradio-play will prompt the url
+    (eradio-play eradio-current-channel)))
 
 (defun eradio-play-low-level (url)
   "Play radio channel URL in a new process."
