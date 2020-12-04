@@ -46,7 +46,7 @@ This is a list of the program and its arguments.  The url will be appended to th
 
 (defvar eradio-process nil "The process running the radio player.")
 
-(defvar eradio-current-channel nil "Currently playing (or paused) channel.")
+(defvar eradio-current-channel nil "The currently playing (or paused) channel.")
 
 (defun eradio-alist-keys (alist)
   "Get the keys from an ALIST."
