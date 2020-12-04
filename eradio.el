@@ -62,12 +62,10 @@ This is a list of the program and its arguments.  The url will be appended to th
 (defun eradio-toggle ()
   "Toggle the radio player."
   (interactive)
-  (cond
-   (eradio-process
-    (delete-process eradio-process)
-    (setq eradio-process nil))
-   (eradio-current-channel (eradio-play-low-level eradio-current-channel))
-   (t (eradio-play))))
+  (if eradio-process
+      (eradio-stop)
+    (when eradio-current-channel
+      (eradio-play eradio-current-channel))))
 
 (defun eradio-play-low-level (url)
   "Play radio channel URL in a new process."
