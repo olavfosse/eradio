@@ -3,10 +3,9 @@
 ** Synopsis
 eradio is a simple Internet radio player for Emacs.
 
-The public interface consists of two functions, =eradio-play= and =eradio-stop=, as well as two variables =eradio-channels= and =eradio-player=. =eradio-play= prompts you for a radio channel to play and =eradio-stop= stops the radio player. The =eradio-channels= variable is an alist of radio channel names and their URLs and =eradio-player= is a list of the media player and its arguments.
+The public interface consists of three functions, =eradio-play=, =eradio-stop= and =eradio-toggle= in addition to three variables =eradio-channels=, =eradio-current-channel= and =eradio-player=. =eradio-play= prompts you for a channel to play and =eradio-stop= stops the player. =eradio-toggle= stops the player if a song is playing, otherwise it plays the previous played channel. If no songs have been played so far =eradio-current-channel= is nil, it prompts for a channel in the same way as =eradio-play=. The =eradio-channels= variable is an alist of radio channel names and their URLs, and =eradio-player= is a list of the media player and its arguments. =eradio-current-channel= is used by =eradio-toggle= to determine the previous channel.
 
 ** [[https://github.com/olav35/eradio/blob/master/demonstration.mp4?raw=true][Demonstration]]
-
 ** Installation
 The package is available in the Melpa repository.
 
@@ -36,6 +35,7 @@ eradio does not bind any keys by default. Therefore you should bind them yoursel
 ;; ~/.doom.d/config.el
 (map! :leader (:prefix ("r" . "eradio") :desc "Play a radio channel" "p" 'eradio-play))
 (map! :leader (:prefix ("r" . "eradio") :desc "Stop the radio player" "s" 'eradio-stop))
+(map! :leader (:prefix ("r" . "eradio") :desc "Toggle the radio player" "t" 'eradio-toggle))
 #+end_src
 
 *** Vanilla
@@ -43,6 +43,7 @@ eradio does not bind any keys by default. Therefore you should bind them yoursel
 ;; ~/.emacs.d/init.el
 (global-set-key (kbd "C-c r p") 'eradio-play)
 (global-set-key (kbd "C-c r s") 'eradio-stop)
+(global-set-key (kbd "C-c r t") 'eradio-toggle)
 #+end_src
 
 ** Radio channels
