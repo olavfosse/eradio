@@ -44,7 +44,7 @@ This is a list of the program and its arguments.  The url will be appended to th
 		 ("mpv" "--no-video" "--no-terminal")))
   :group 'eradio)
 
-(defvar eradio-process nil "The process running the radio player.")
+(defvar eradio--process nil "The process running the radio player.")
 
 (defun eradio-alist-keys (alist)
   "Get the keys from an ALIST."
@@ -52,13 +52,13 @@ This is a list of the program and its arguments.  The url will be appended to th
 
 (defun eradio-stop ()
   "Stop the radio player."
-  (interactive) (when eradio-process (delete-process eradio-process)))
+  (interactive) (when eradio--process (delete-process eradio--process)))
 
 (defun eradio-play-low-level (url)
   "Play radio channel URL in a new process."
-  (setq eradio-process
+  (setq eradio--process
 	(apply #'start-process
-	       `("eradio-process" nil ,@eradio-player ,url))))
+	       `("eradio--process" nil ,@eradio-player ,url))))
 
 (defun eradio-get-url ()
   "Get a radio channel URL from the user."
