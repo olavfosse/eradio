@@ -78,10 +78,10 @@ This is a list of the program and its arguments.  The url will be appended to th
 (defun eradio--get-url ()
   "Get a radio channel URL from the user."
   (let ((eradio-channel (completing-read
-                       "Channel: "
-                       (eradio--alist-keys eradio-channels)
-                       nil nil)))
-  (or (cdr (assoc eradio-channel eradio-channels)) eradio-channel)))
+			 "Channel: "
+			 (eradio--alist-keys eradio-channels)
+			 nil nil)))
+    (or (cdr (assoc eradio-channel eradio-channels)) eradio-channel)))
 
 ;;;###autoload
 (defun eradio-play (&optional url)
