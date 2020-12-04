@@ -52,6 +52,7 @@ This is a list of the program and its arguments.  The url will be appended to th
   "Get the keys from an ALIST."
   (mapcar #'car alist))
 
+;;;###autoload
 (defun eradio-stop ()
   "Stop the radio player."
   (interactive)
@@ -59,6 +60,7 @@ This is a list of the program and its arguments.  The url will be appended to th
     (delete-process eradio--process)
     (setq eradio--process nil)))
 
+;;;###autoload
 (defun eradio-toggle ()
   "Toggle the radio player."
   (interactive)
