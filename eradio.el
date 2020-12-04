@@ -84,11 +84,11 @@ This is a list of the program and its arguments.  The url will be appended to th
   (or (cdr (assoc eradio-channel eradio-channels)) eradio-channel)))
 
 ;;;###autoload
-(defun eradio-play ()
+(defun eradio-play (&optional url)
   "Play a radio channel, do what I mean."
   (interactive)
   (eradio-stop)
-  (let ((url (eradio-get-url)))
+  (let ((url (or url (eradio-get-url))))
     (setq eradio-current-channel url)
     (eradio-play-low-level url)))
 
