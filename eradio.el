@@ -92,5 +92,15 @@ This is a list of the program and its arguments.  The url will be appended to th
     (setq eradio-current-channel url)
     (eradio--play-low-level url)))
 
+(defun eradio--get-random-channel ()
+  "Return a random channel from `eradio-channels'"
+  (let ((random-index (random (length eradio-channels))))
+    (nth random-index eradio-channels)))
+
+;;;###autoload
+(defun eradio-play-random-channel ()
+  "Play a random channel from `eradio-channels'"
+  (interactive)
+  (eradio-play (cdr (eradio--get-random-channel))))
 (provide 'eradio)
 ;;; eradio.el ends here
