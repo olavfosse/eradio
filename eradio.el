@@ -93,14 +93,28 @@ This is a list of the program and its arguments.  The url will be appended to th
     (eradio--play-low-level url)))
 
 (defun eradio--get-random-channel ()
-  "Return a random channel from `eradio-channels'"
+  "Return a random channel from `eradio-channels'."
   (let ((random-index (random (length eradio-channels))))
     (nth random-index eradio-channels)))
 
 ;;;###autoload
 (defun eradio-play-random-channel ()
-  "Play a random channel from `eradio-channels'"
+  "Play a random channel from `eradio-channels'."
   (interactive)
   (eradio-play (cdr (eradio--get-random-channel))))
+
+(defun eradio--get-random-and-different-channel ()
+  "Return a random channel, which is different to `eradio-current-channel', from `eradio-channels'."
+  (let ((random-channel  (eradio--get-random-channel)))
+    (if (string-equal (cdr random-channel) eradio-current-channel)
+	(eradio--get-random-and-different-channel)
+      random-channel)))
+
+;;;###autoload
+(defun eradio-play-random-and-different-channel ()
+  "Play a random channel, which is different to `eradio-current-channel', from `eradio-channels'."
+  (interactive)
+  (eradio-play (cdr (eradio--get-random-and-different-channel))))
+
 (provide 'eradio)
 ;;; eradio.el ends here
