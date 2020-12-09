@@ -3,11 +3,12 @@
 ** Synopsis
 eradio is a simple Internet radio player for Emacs.
 
-The public interface consists of three functions and three variables.
+The public interface consists of five functions and three variables.
 
 *** Functions
-
 - =eradio-play= prompts you for a channel to play.
+- =eradio-play-random-channel= play a random channel from =eradio-channels=, see [[https://github.com/olav35/eradio#variables][Variables]].
+- =eradio-play-random-and-different-channel= play a random channel from =eradio-channels= that is different from =eradio-current-channel=, see [[https://github.com/olav35/eradio#variables][Variables]].
 - =eradio-stop= stops the player.
 - =eradio-toggle= stops the player if a song is playing. Otherwise it plays the previous played channel. If no songs have been played so far it prompts for a channel in the same way as =eradio-play=.
 
