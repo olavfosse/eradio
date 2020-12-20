@@ -7,8 +7,8 @@ The public interface consists of five functions and three variables.
 
 *** Functions
 - =eradio-play= prompts you for a channel to play.
-- =eradio-play-random-channel= play a random channel from =eradio-channels=, see [[https://github.com/olav35/eradio#variables][Variables]].
-- =eradio-play-random-and-different-channel= play a random channel from =eradio-channels= that is different from =eradio-current-channel=, see [[https://github.com/olav35/eradio#variables][Variables]].
+- =eradio-play-random-channel= play a random channel from =eradio-channels=, see [[https://github.com/fossegrim/eradio#variables][Variables]].
+- =eradio-play-random-and-different-channel= play a random channel from =eradio-channels= that is different from =eradio-current-channel=, see [[https://github.com/fossegrim/eradio#variables][Variables]].
 - =eradio-stop= stops the player.
 - =eradio-toggle= stops the player if a song is playing. Otherwise it plays the previous played channel. If no songs have been played so far it prompts for a channel in the same way as =eradio-play=.
 
@@ -18,7 +18,7 @@ The public interface consists of five functions and three variables.
 - =eradio-player= is a list of the media player and its arguments.
 - =eradio-current-channel= is the currently, or previously, played radio channel. It is used by =eradio-toggle= to determine what channel to play.
 
-** [[https://github.com/olav35/eradio/blob/master/demonstration.mp4?raw=true][Demonstration]]
+** [[https://github.com/fossegrim/eradio/blob/master/demonstration.mp4?raw=true][Demonstration]]
 ** Installation
 The package is available in the Melpa repository.
 
