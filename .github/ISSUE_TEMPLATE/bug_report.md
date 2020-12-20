@@ -3,7 +3,7 @@ name: Bug report
 about: Report an issue
 title: ''
 labels: bug
-assignees: olav35
+assignees: fossegrim
 
 ---
 

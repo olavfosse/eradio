@@ -17,7 +17,7 @@ The public interface consists of three functions and three variables.
 - =eradio-player= is a list of the media player and its arguments.
 - =eradio-current-channel= is the currently, or previously, played radio channel. It is used by =eradio-toggle= to determine what channel to play.
 
-** [[https://github.com/olav35/eradio/blob/master/demonstration.mp4?raw=true][Demonstration]]
+** [[https://github.com/fossegrim/eradio/blob/master/demonstration.mp4?raw=true][Demonstration]]
 ** Installation
 The package is available in the Melpa repository.
 

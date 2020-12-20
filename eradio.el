@@ -4,7 +4,7 @@
 
 ;; Author: Olav Fosse <mail@olavfosse.no>
 ;; Version: 0.1
-;; URL: https://github.com/olav35/eradio
+;; URL: https://github.com/fossegrim/eradio
 ;; Package-Requires: ((emacs "24.1"))
 
 ;; This program is free software; you can redistribute it and/or modify
