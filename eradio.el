@@ -87,8 +87,8 @@ This is a list of the program and its arguments.  The url will be appended to th
 (defun eradio-play (&optional url)
   "Play a radio channel, do what I mean."
   (interactive)
-  (eradio-stop)
   (let ((url (or url (eradio--get-url))))
+    (eradio-stop)
     (setq eradio-current-channel url)
     (eradio--play-low-level url)))
 
