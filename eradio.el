@@ -88,9 +88,12 @@ This is a list of the program and its arguments.  The url will be appended to th
   "Play a radio channel, do what I mean."
   (interactive)
   (let ((url (or url (eradio--get-url))))
-    (eradio-stop)
-    (setq eradio-current-channel url)
-    (eradio--play-low-level url)))
+    (if (url-file-exists-p url)
+	(progn 
+	  (eradio-stop)
+	  (setq eradio-current-channel url)
+	  (eradio--play-low-level url))
+      (message "file doesn't exist: %s" url))))
 
 (provide 'eradio)
 ;;; eradio.el ends here
