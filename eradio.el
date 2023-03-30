@@ -46,6 +46,8 @@ This is a list of the program and its arguments.  The url will be appended to th
 
 (defvar eradio--process nil "The process running the radio player.")
 
+(defvar eradio--process-name "eradio--process" "The name of the process running the radio player.")
+
 (defvar eradio-current-channel nil "The currently playing (or paused) channel.")
 
 (defun eradio--alist-keys (alist)
@@ -56,24 +58,30 @@ This is a list of the program and its arguments.  The url will be appended to th
 (defun eradio-stop ()
   "Stop the radio player."
   (interactive)
-  (when eradio--process
-    (delete-process eradio--process)
-    (setq eradio--process nil)))
+  (mapc (lambda (proc)
+	  (when (string-prefix-p eradio--process-name (process-name proc))
+	    (delete-process proc)))
+	(process-list))
+  (setq eradio--process nil))
 
 ;;;###autoload
 (defun eradio-toggle ()
   "Toggle the radio player."
   (interactive)
   (if eradio--process
-      (eradio-stop)
-    ;; If eradio-current-channel is nil, eradio-play will prompt the url
-    (eradio-play eradio-current-channel)))
+    (if (eq (process-status eradio--process) 'stop)
+	(continue-process eradio--process)
+      (signal-process eradio--process 'STOP))
+  ;; If eradio-current-channel is nil, eradio-play will prompt the url
+  (eradio-play eradio-current-channel)))
 
-(defun eradio--play-low-level (url)
+(defun eradio--play-low-level (url old-process old-channel)
   "Play radio channel URL in a new process."
+  (setq eradio-current-channel url)
   (setq eradio--process
 	(apply #'start-process
-	       `("eradio--process" nil ,@eradio-player ,url))))
+	       `(,eradio--process-name nil ,@eradio-player ,url)))
+  (set-process-sentinel eradio--process (eradio--make-sentinel url old-process old-channel)))
 
 (defun eradio--get-url ()
   "Get a radio channel URL from the user."
@@ -83,14 +91,26 @@ This is a list of the program and its arguments.  The url will be appended to th
 			 nil nil)))
     (or (cdr (assoc eradio-channel eradio-channels)) eradio-channel)))
 
+(defun eradio--make-sentinel (url old-process old-channel) 
+  "Make a process sentinel that restores the old channel when the new one is not playable."
+  (lambda (proc event-desc)
+    "eradio sentinel"
+    (if (process-live-p eradio--process)
+	(when (process-live-p old-process) (delete-process old-process))
+      (when (process-live-p old-process) (continue-process old-process))
+      (setq eradio-current-channel old-channel)
+      (setq eradio--process old-process)
+      (message "Cannot play URL: %s" url))))
+
 ;;;###autoload
 (defun eradio-play (&optional url)
   "Play a radio channel, do what I mean."
   (interactive)
-  (let ((url (or url (eradio--get-url))))
-    (eradio-stop)
-    (setq eradio-current-channel url)
-    (eradio--play-low-level url)))
+  (let ((url (or url (eradio--get-url)))
+	(old-channel eradio-current-channel)
+	(old-process eradio--process))
+    (when (process-live-p old-process) (signal-process old-process 'STOP))
+    (eradio--play-low-level url old-process old-channel)))
 
 (provide 'eradio)
 ;;; eradio.el ends here
